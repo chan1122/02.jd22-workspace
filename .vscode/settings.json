@@ -1,0 +1,8 @@
+{
+    "java.project.sourcePaths": [
+        "01.JAVA-Root/javadefault/src",
+        "01.JAVA-Root/javadefault"
+    ],
+    "java.dependency.packagePresentation": "flat",
+    "editor.inlayHints.enabled": "off"
+}

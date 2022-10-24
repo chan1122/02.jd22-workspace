@@ -1,0 +1,40 @@
+[ vscode 자바개발환경 설정 ]
+1. 먼저 JDK를 설치후 환경변수 설정한다
+2. vscode Java 확장 패키지를 설치한다
+
+-마켓플레이스에서 "Java" 라고 검색
+Extenstion pack for Java 이것을 설치!
+
+3. 자바 프로젝트를 실행한다  (설치중이라서 아직 안댐!)
+1) F1키누름 : 검색어에 "java project"
+-> Create Java Project... 을 클릭
+2) 상위지정폴덩 선택(생성)
+3) 프로젝트 명을 쓰면 새로운 자바 프로젝트가 
+vscode 새창으로 열림
+
+4. 자바파일 생성후 기본 실행하기
+- 기본자바파일은 내부 클래스명과 동일한 파일명을 쓴다!
+- 클래스는 반드시 대문자로 시작한다!
+- 따라서 파일명도 대문자로 클래스명과 동일하게 작성함!
+- Java Run | Debug 버튼 클릭 -> 컴파일 함!
+- 자바실행 단축키 ctrl + F5
+- 자바 디버깅 단축키 : F5
+-> bin폴더가 없다면 만들어주면서 class파일이 생김!
+-> 결과는 터미널창에 출력!
+(기본적으로 터미널 창은 cotrol + `(백틱))
+
+[ 처음 자바실행시 inlay Hints가 적용되어서 앞에 X: 이런 표시가 뜸 ]
+-> 없애는 방법
+1) F1키 누르고 json파일검색
+-> 기본설정  제이슨 파일 선택(defaultSettings.json)
+(수정은 못하고 검색만됨!)
+
+여기서 "inlay"검색
+"editor.inlayHints.enabled": "on",
+
+2) F1키 누르고 json파일 검색
+-> 사용자 설정열기(settings.json)
+"inlay" 를 검색해서 없으면
+"editor.inlayHints.enabled": "on", 을 널고
+값을 off로 덮어쓴다 
+->    "editor.inlayHints.enabled": "off",
