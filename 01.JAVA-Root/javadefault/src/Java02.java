@@ -1,5 +1,5 @@
 // Java02.변수와 데이터형
-public class Java02 {
+public class JAVA02 {
     public static void main(String[] args) {
         /* [ 자바 변수 ]
             변수는 데이터 값을 저장하기 위한 컨테이너

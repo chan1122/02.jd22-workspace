@@ -1,3 +1,8 @@
+import java.lang.invoke.ConstantBootstraps;
+
+import javax.swing.text.AbstractDocument.LeafElement;
+
+// Java03. 연산자와 문자형과 수학함수
 public class JAVA03 {
     public static void main(String[] args) {
         /* [ 자바 연산자 ] 
@@ -105,17 +110,18 @@ public class JAVA03 {
 
         // 6. 문자열 일부가져오기
         // substring(시작순번,끝뒤순번)
-        System.out.println("Hand만 잘라서 가져와봐!"+myFace.substring(10, 14));
+        System.out.println("Hand만 잘라서 가져오깅!! : "+myFace.substring(10,14));
 
         // 7. 문자열 일부변경하기
         // replace(바꿀문자열,바뀔문자열)
-        System.out.println("Handsome을 Smart로변경:"+
-        myFace.replace("Handsome", "Smart"));
+        System.out.println("Handsome 을 Smart로 변경!"+myFace.replace("Handsome","smart"));
 
         // 8. 문자열 반복하기
         // repeat(반복회수)
-        var nayana = "나야나!";
-        System.out.println("나야나! 세번반복하기:"+nayana.repeat(3));
+        var nayana = "집가고싶다?";
+        // var 로 선언하면 외쪽의 데이터 ㅕㅎㅇ에 따라 
+        // 자동으로 형을 정해주는 선언 방법(JAVA10 부터 도입)
+        System.out.println("뭐라고? * 10 : "+nayana.repeat(10));
 
         // 9. 문자열 연결
         // + 연산자를 문자열 사이에 사용하여 결합
@@ -137,7 +143,8 @@ public class JAVA03 {
         System.out.println("개행은 \n이렇게!");
         System.out.println("엔터는 \r이렇게! 엔터는 여기서 다시 실행함!");
         System.out.println("탭은\t이렇게!");
-        System.out.println("백스페이스는\b 이렇게!"); // 뒤의 공백을 없앰!
+        System.out.println("백스페이스는\b 이렇게!"); 
+        // 뒤의 공백을 없앰!
 
         // 참고) 기타 이스케이프 시퀀스
         // \n	개행	
@@ -162,7 +169,7 @@ public class JAVA03 {
         Math.abs(1000-10000)+"원");
         // 5. Math.random() - 0.0(포함)과 1.0(제외) 사이의 난수
         // ceil() 올림, floor() 내림, round() 반올림
-        System.out.println("1~5 사이의 난수는? "+Math.ceil(Math.random()*5));
+        System.out.println("1~5 사이의 난수는? "+Math.floor(Math.random()*5));
                 
 
     }
