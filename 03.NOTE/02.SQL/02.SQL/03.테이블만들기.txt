@@ -46,7 +46,7 @@ CREATE TABLE `friends`(
     `fmsg` text(1000), 
     `fdate` timestamp, 
     PRIMARY KEY (`fnum`) 
-);`
+);
 
 추가예시)
 CREATE TABLE `saveMoney`(
@@ -148,4 +148,5 @@ MODIFY COLUMN `컬럼명` 데이터형;
 예시)
 ALTER TABLE `friends`
 MODIFY COLUMN `fname` varchar(100);
+
 
