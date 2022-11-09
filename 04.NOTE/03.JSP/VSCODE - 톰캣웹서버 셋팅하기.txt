@@ -8,14 +8,17 @@
 9버전으로 다운로드!
 https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.68/bin/apache-tomcat-9.0.68.exe
 
+-> 톰캣서버 관리패널 : 트레이에 있음!
+
 
 [2. 서버설정 파일 수정하기]
 
 (1) 수정파일 : server.xml
+위치 -> C:\Program Files\Apache Software Foundation\Tomcat 9.0\conf
 
 (2) 수정내용 :
 
-    1) Host태그쪽에 보면 Value태그가 있는데 바로위에 Context라는 태그를 추가
+    1) Host태그쪽에 보면 Valve태그가 있는데 바로위에 Context라는 태그를 추가
     <Context path="" docBase="JSP작업을 할 위치" workDir="컴파일class위치"></Context>
 
     + 컴파일된 class 파일 위치를 추가해 준다. 
@@ -35,7 +38,7 @@ https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.68/bin/apache-tomcat-9.0.68.exe
 
 3. MySQL 서버를 사용하기 위한 mysql jar 파일을 다운로드 후 
 http://www.java2s.com/Code/Jar/m/Downloadmysqlconnectorjar.htm
-MySQL 서버폴더 하위에 bin폴더에 넣어준다
+MySQL 서버폴더 하위에 lib폴더에 넣어준다
 -> (중요!)이것을 넣어야 JSP에서 DB연결을 할 수 있다!!!
 
 
