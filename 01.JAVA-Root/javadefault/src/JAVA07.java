@@ -1,47 +1,110 @@
+import java.time.chrono.JapaneseChronology;
+
+import fruit.america.north.Usafruit;
+import fruit.america.south.Chillefruit;
+import fruit.america.south.Perufruit;
+import fruit.asia.Japanfruit;
+import fruit.asia.Koreafruit;
+
 // JAVA07. 클래스와 객체 그리고 속성과 메서드
 // + 접근한정자(Modifier) + 캡슐화 + 팩키지
 public class JAVA07 {
-    // public JAVA07(){} 
+    // public JAVA07(){}
     // -> 안만들어도 클래스와 같은 이름의 메서드 -> 생성자가 만들어짐!!
 
     /****************************************************
-        클래스명과 동일한 이름의 파일에는 
-        단 하나의 public 클래스를 가질 수 있다!
-        
-        그래서 하나의 java파일안에는 다른 클래스를 만들 수 있다!
-        단, 다른 추가클래스는 public 접근한정자를 쓸 수 없다!
-        접근한정자(Modifier)를 안쓰면 default라고 부른다
+     * 클래스명과 동일한 이름의 파일에는
+     * 단 하나의 public 클래스를 가질 수 있다!
+     * 
+     * 그래서 하나의 java파일안에는 다른 클래스를 만들 수 있다!
+     * 단, 다른 추가클래스는 public 접근한정자를 쓸 수 없다!
+     * 접근한정자(Modifier)를 안쓰면 default라고 부른다
+     * 
+     * -> bin폴더에 생성된 class파일은 class단위로
+     * 개별적으로 생성된다!(꼭 확인해 볼것!)
+     * _____________________________________________
+     * 
+     * [ 클래스에서 사용하는 접근한정자(Modifier) ]
+     * -> public을 쓰거나 안쓰거나 둘 중 하나!
+     * 1. public -> 모든 다른 클래스에서 접근허용
+     * 2. default : 앞에 아무것도 안쓴 경우!
+     * -> 같은 팩키지 안에서만 접근 가능
+     * (팩키지는 폴더라고 생각하면 됨!)
+     * 
+     * [ 클래스의 구성요소를 위한 접근한정자 ]
+     * -> 속성과 메서드!!!를 위한 접근한정자
+     * 
+     * 1. public -> 다른 클래스에서 접근가능
+     * 2. private(프라이빗-> 어떤느낌?) -> 다른클래스에서 접근불가
+     * -> 선언된 클래스안에서만 접근됨!
+     * -> 프라이빗 속성일 경우 Getter/Setter를 통해 접근한다!
+     * 이런방법을 캡슐화라고 한다!
+     * 3. protected(프로텍티드->어떤느낌?) -> 다른클래스에서 접근불가
+     * -> 하위클래스(상속받은클래스)에서 접근됨!
+     * -> 같은 패키지 안에서도 접근가능!
+     * 4. default -> 아무것도 안쓴경우
+     * -> 같은 패키지(같은폴더)안에서만 접근가능함!
+     * _________________________________________
+     * 
+     *  [ 캡슐화란? ]
+     *  -> 클래스의 속성을 private으로 만들고 메서드를 통하여 
+     * 값을 넣거나 가져오는 방법 
+     * -> 겟터와 셋터를 생성한다.
+     * 
+     * 
+     * {캡슐화를 하는 이유}
+     * 1. 클래스 속성과 메서드의 제어 향상
+     * 2. 클래스 속성은 읽기 전용(Getter)와 쓰기 전용
+     * (Setter)로 만들 수 있고
+     * 이를 통해 내부적인 데이터 흐름의 효율성을 높일수 있다!
+     * 3. 다른 코드에 영향을 주지 않고 한 부분만 변경하는 
+     * 유연성을 가질수 있다
+     * 4. 데이터에 대한 보안이 강화된다!
+     * 5. 자바 웹을 구현할떄 캡슐화는 선택이 아니라 필수이다
+     *  -> 겟터와 셋터가 형식이 일정한데 
+     *      속성(변수)이 많아지면 이것을 만들기 귀찮음..
+     *      자동생성을 툴에서 지원한다
+     * _________________________________________________
+     * 
+     *  [♣ 이클립스의 겟터/셋터 자동생성하기]
+        마우스 우클릭 > Source 
+        > Generate Getters and Setters... 메뉴 선택
 
-        -> bin폴더에 생성된 class파일은 class단위로
-        개별적으로 생성된다!(꼭 확인해 볼것!)
-        _____________________________________________
-
-        [ 클래스에서 사용하는 접근한정자(Modifier) ]
-        -> public을 쓰거나 안쓰거나 둘 중 하나!
-        1. public -> 모든 다른 클래스에서 접근허용
-        2. default : 앞에 아무것도 안쓴 경우!
-                  -> 같은 팩키지 안에서만 접근 가능
-                    (팩키지는 폴더라고 생각하면 됨!)
-
-        [ 클래스의 구성요소를 위한 접근한정자 ]
-        -> 속성과 메서드!!!를 위한 접근한정자
-
-        1. public -> 다른 클래스에서 접근가능
-        2. private(프라이빗-> 어떤느낌?) -> 다른클래스에서 접근불가
-          -> 선언된 클래스안에서만 접근됨!
-          -> 프라이빗 속성일 경우 Getter/Setter를 통해 접근한다!
-          이런방법을 캡슐화라고 한다!
-        3. protected(프로텍티드->어떤느낌?) -> 다른클래스에서 접근불가
-          -> 하위클래스(상속받은클래스)에서 접근됨!
-          -> 같은 패키지 안에서도 접근가능!
-        4. default -> 아무것도 안쓴경우
-          -> 같은 패키지(같은폴더)안에서만 접근가능함!
-
-
-
+        [♣ VSCODE의 겟터/셋터 자동생성하기]
+        -> 확장프로그램 설치 : getter-setter-generator
+        -> 설치 후 F1 -> 입력창에 get입력후 
+        -> Generate get and set methods 선택함
+        -> 겟터/셋터 자동생성됨!
+     * _______________________________________________
+     * 
+     * [ 자바의 패키지 ]
+     * ->> 패키지 명은 소문자로만 작성이 원칙이다
+     * 1. 패키지는 자바의 클래스를 그룹화하는 방법이다
+     * 2. 그룹화 하는 방법은 파일의 디렉터와 같이 폴더를 생성하여 묶어주면 패키지가 생성된다
+     * 3. 패키지의 장점
+     *      1) 클래스의 내용별 분류 및 체계화가 된다!
+     *      2) 동일한 이름의 클래스를 분류별로 보유할 수 있다!
+     * 4. 패키지의 종류
+     *  1) 내장 패키지 (Java API) : 
+     * 자바가 가지고 있는 기능별 클래스 묶음   
+     * -> https://docs.oracle.com/javase/8/docs/api/ 
+     *  2) 사용자 정의 패키지 : 자신만의 패키지를 생성한다!
+     *  -> src하위의 폴더를 만들고 거기에 java파일 생성 
+     * 
+     * 5. 패키지 불러오는 방법 
+     *      1) import 패키지.폴더명.클래스명
+     *      2) import 패키지명.폴더명.*
+     *              -> 폴더하위의 모든 클래스를 가져옴
+     *  
+     * 6. 패키지에 생성한 java파일 상단에는 자신이 속한
+     * 패키지가 표시된다.
+     * 
+     * 표시형식 : pakage 패키지명.폴더명;
+     *      
+     * 
      ****************************************************/
     public static void main(String[] args) {
-        /* 
+        /*
          * [ 클래스란? ]
          * - 객체를 만들기 위한 템플릿이다
          * -> 반대로 보면 객체는 클래스의 실물이다(인스턴스다!)
@@ -57,8 +120,8 @@ public class JAVA07 {
          * [ 객체지향프로그래밍 이란? ]
          * - OOP(Object-Oriented Programming)
          * -> 기능별로 구분하여 클래스를 만들고
-         *    그 클래스는 객체를 생성하여 모듈별
-         *    기능별로 나눠진 모듈화 프로그래밍 방식
+         * 그 클래스는 객체를 생성하여 모듈별
+         * 기능별로 나눠진 모듈화 프로그래밍 방식
          */
 
         // 1. 클래스 생성
@@ -83,12 +146,11 @@ public class JAVA07 {
         // 가격설정하기 : setPrice(숫자)
         fruits.setPrice(12000);
         // 가격가져오기 : getPrice()
-        System.out.println(fruits.name + "의 가격은 "+
-        fruits.getPrice() + "원 입니다!");
+        System.out.println(fruits.name + "의 가격은 " +
+                fruits.getPrice() + "원 입니다!");
 
         // 다시 과일 속성찍기 메서드 호출
         fruits.fruitsFn();
-
 
         // 과일정의 속성 변경하기
         // final 변수는 상수이므로 못바꾼다!
@@ -96,7 +158,6 @@ public class JAVA07 {
 
         // 과일의 정의 찍기 메서드 호출
         // fruits.defineFruit();
-
 
         // 사과 클래스 메서드 호출하기 ////
         Apple apple = new Apple();
@@ -108,6 +169,24 @@ public class JAVA07 {
         banana.bananaFn("맛좋은");
         banana.bananaFn("커다란");
 
+        Koreafruit korea = new Koreafruit();
+        korea.KoreaFn();
+
+        // 일본호출!
+        Japanfruit japan = new Japanfruit();
+        japan.JapanFn();
+
+        // 미국호출 
+        Usafruit usafruit = new Usafruit();
+        usafruit.usaFn();
+
+        // 칠레 호출 
+        Chillefruit chillefruit = new Chillefruit();
+        chillefruit.chilleFn();
+
+        //페루 호출 
+        Perufruit perufruit = new Perufruit();
+        perufruit.PeruFn();
     } /////// main 메서드 ///////
 } ////////// JAVA07 클래스 //////////////////
 
@@ -122,15 +201,16 @@ class Fruits {
     String flavor;
     // 4. 과일개당무게
     double weight;
-    // 5. 과일에대한 정의 : 
+    // 5. 과일에대한 정의 :
     // -> 값을 못바꾸도록 상수화함! final
     final String definition = "나무 따위를 가꾸어 얻는, 사람이 먹을 수 있는 열매";
 
     // 6. 프라이빗 변수 만들기!!! : 과일가격속성
     private int price;
-    /****************************************** 
+
+    /******************************************
      * [ 겟터(Getter)와 셋터(Setter) ]
-     * ->  프라이빗 필드를 캡슐화하여 접근하는 방법
+     * -> 프라이빗 필드를 캡슐화하여 접근하는 방법
      * -> 장점은 속성을 직접 노출하지 않으며
      * 값을 넣고 읽는 메서드를 생성하여 속성에대한
      * 일관된 접근방법을 제시해준다!
@@ -140,7 +220,7 @@ class Fruits {
      * 1. 필드값을 반환한다.
      * 2. 접근 제어 수식어 : public
      * 3. 겟터명 : get필드명
-     *          (필드명의 첫글자는 대문자)
+     * (필드명의 첫글자는 대문자)
      * 4. 매개변수 없음
      * 5. 내용 : return 필드
      * 
@@ -149,20 +229,21 @@ class Fruits {
      * 1. 필드값 초기화(셋팅)
      * 2. 접근 제어 수식어 : (대분분) public
      * 3. 셋터명 : set필드명
-     *          (필드명의 첫글자는 대문자)
+     * (필드명의 첫글자는 대문자)
      * 4. 매개변수 : 필드와 동일
      * 5. 내용 : 생성자와 동일
-     *          (this.필드명 = 매개변수명)
+     * (this.필드명 = 매개변수명)
      * 
      ******************************************/
-     // Getter
-     public int getPrice(){
+    // Getter
+    public int getPrice() {
         return price;
-     }
-     // Setter
-     public void setPrice(int price){
+    }
+
+    // Setter
+    public void setPrice(int price) {
         this.price = price;
-     }
+    }
 
     /*******************************************
      * [ 클래스 생성자(Constructor) ]
@@ -171,18 +252,18 @@ class Fruits {
      * 3. 객체초기화 함수다!
      * 4. 안만들어도 기본 생성자가 만들어진다!
      * 5. 반환값(리턴값)을 가질 수 없다!!!
-     *    (왜냐하면 일반호출을 하는 메서드가 아니므로!)
+     * (왜냐하면 일반호출을 하는 메서드가 아니므로!)
      * 6. 직접 생성자를 만드는 경우:
-     *    초기값 셋팅 또는 처음에 실행이 필요한 코드 등
+     * 초기값 셋팅 또는 처음에 실행이 필요한 코드 등
      *******************************************/
-    // 이 클래스를 생성할 경우 
+    // 이 클래스를 생성할 경우
     // 초기값 셋팅이 필요하므로 생성자를 만든다!
     // 일반 메서드가 아니므로 이름이 클래스명과 동일함!
     // 보통 매개변수는 속성명과 동일한 이름으로 쓴 경우가 많다
-    // 그래서 속성명과 매개변수를 구분하기 위해 
+    // 그래서 속성명과 매개변수를 구분하기 위해
     // ->>> 속성명 앞에 this를 사용한다!
     // this.속성명 -> 클래스에 선언된 속성명임!
-    public Fruits(String name,String color, String flavor,double weight){
+    public Fruits(String name, String color, String flavor, double weight) {
         // 속성값 셋팅!
         this.name = name;
         this.color = color;
@@ -199,33 +280,30 @@ class Fruits {
     } ///// Fruits 생성자 /////////
 
     // 메서드1 - 클래스 안에 정의된 함수
-    public void fruitsFn(){
-        System.out.println("나는"+name+"입니다! 색은 "+
-        color + "이고 냄새는 "+ flavor + "입니다. 개당 무게는 "+
-        weight + "kg 입니다.");
+    public void fruitsFn() {
+        System.out.println("나는" + name + "입니다! 색은 " +
+                color + "이고 냄새는 " + flavor + "입니다. 개당 무게는 " +
+                weight + "kg 입니다.");
     } ////////// fruitsFn 메서드 ////////
 
     // 메서드2 - 과일의 정의를 찍는 메서드
     public void defineFruit() {
-        System.out.println("과일의 정의는 "+ definition + "이다.");
+        System.out.println("과일의 정의는 " + definition + "이다.");
     } ///////// defineFruit 메서드 ///////
-
 
 } //////////// Fruits 클래스 /////////////
 
-
 /////// 바나나 클래스 /////////////////////
 class Banana {
-    public void bananaFn(String word){
+    public void bananaFn(String word) {
         System.out.println("나는 " + word + " 바나나입니다!");
     } //////// bananaFn 메서드 ///////
 
 } ////////// Banana 클래스 //////////////
 
-
 /////// 사과 클래스 /////////////////////
 class Apple {
-    public void appleFn(String word){
+    public void appleFn(String word) {
         System.out.println("나는 " + word + " 사과입니다!");
     } //////// appleFn 메서드 ///////
 
